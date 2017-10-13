@@ -2,16 +2,16 @@
 
 module.exports = function(app) {
 	
-	var device = require('../controllers/deviceController');
+	var device = require('../controllers/DeviceController');
 	
 	// device Routes
 	app.route('/api/v1/devices')
-		.get(device.list_all_devices)
-		.post(device.create_a_device);
+		.get(device.read_all)
+		.post(device.create);
 
 
-	app.route('/api/v1/devices/:deviceId')
-		.get(device.read_a_device)
-		.put(device.update_a_device)
-		.delete(device.delete_a_device);
+	app.route('/api/v1/devices/:id')
+		.get(device.read_one)
+		.put(device.update)
+		.delete(device.destroy);
 };

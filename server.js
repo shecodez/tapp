@@ -7,7 +7,8 @@ var	mongoose	= require('mongoose');
 var	bodyParser	= require('body-parser');
 
 // Additional Modules
-var Device = require('./api/v1/models/deviceModel');
+var config	= require('./config');
+var Device	= require('./api/v1/models/Device');
 	
 /**
  * Create Express app
@@ -15,19 +16,18 @@ var Device = require('./api/v1/models/deviceModel');
 var app = express();
 
 /**
- * Setup
+ * Setup middleware
 **/
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://admin:password@ds119585.mlab.com:19585/tapp');
-
 app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: true }));
 
 /**
  * Routes/Routing
 **/
-var routes = require('./api/v1/routes/deviceRoutes');
-routes(app);
+//var routes = require('./routes.js');
+//app.use('/', routes);
+var deviceRoutes = require('./api/v1/routes/DeviceRoutes');
+deviceRoutes(app);
 
 /**
  * Error Handling
@@ -37,10 +37,24 @@ app.use(function(req, res) {
 });
 
 /**
- * Start server
-**/
-var port = process.env.PORT || 3000;
+ * Start Server, Connect to DB & Require Routes
+ **/
+var server = app.listen(config.port, function () {
+	/**
+	 * Est connection to mongodb
+	**/
+	mongoose.Promise = global.Promise;
+	mongoose.connect(config.db.uri, { useMongoClient: true });
 
-var server = app.listen(port, function () {
-	console.log('Express server listening on %d, in %s mode', port, app.get('env'));
+	var db = mongoose.connection;
+
+	db.on('error', function(err) {
+		console.error(err);
+		process.exit(1);
+	});
+
+	db.once('open', function() {
+		//require('./routes')(server);
+		console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
+	});
 });

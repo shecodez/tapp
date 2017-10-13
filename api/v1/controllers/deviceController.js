@@ -1,53 +1,64 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-	Device = mongoose.model('Devices');
+	Device = mongoose.model('Device');
 
 
 // GET tapp.io/api/v1/devices
-exports.list_all_devices = function(req, res) {
+exports.read_all = function(req, res) {
 	Device.find({}, function(err, device) {
 		if (err)
 			res.send(err);
+		
 		res.json(device);
 	});
 };
 
 // POST tapp.io/api/v1/devices/:params
-exports.create_a_device = function(req, res) {
-	var new_device = new Device(req.body);
-	new_device.save(function(err, device) {
-		if (err)
+exports.create = function(req, res) {
+	var device = new Device();
+	
+	device.name = req.body.name;
+	device.instruction = req.body.instruction;
+
+	device.save(function(err) {
+		if (err) 
 			res.send(err);
-		res.json(device);
+
+		res.json({ message: 'Device created!' });
 	});
 };
 
-// GET tapp.io/api/v1/devices/:deviceId
-exports.read_a_device = function(req, res) {
-	Device.findById(req.params.deviceId, function(err, device) {
+// GET tapp.io/api/v1/devices/:id
+exports.read_one = function(req, res) {
+	Device.findById(req.params.id, function(err, device) {
 		if (err)
 			res.send(err);
+		
 		res.json(device);
 	});
 };
 
 // PUT tapp.io/api/v1/devices/:params
-exports.update_a_device = function(req, res) {
-	Device.findOneAndUpdate({_id: req.params.deviceId}, req.body, {new: true}, function(err, device) {
+exports.update = function(req, res) {
+	var device = req.body;
+	
+	device.updated_at = Date.now();
+
+	Device.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, device) {
 		if (err)
 			res.send(err);
+		
 		res.json(device);
 	});
 };
 
-// DELETE tapp.io/api/v1/device/:deviceId
-exports.delete_a_device = function(req, res) {
-	Device.remove({
-		_id: req.params.device
-	}, function(err, device) {
+// DELETE tapp.io/api/v1/device/:id
+exports.destroy = function(req, res) {
+	Device.findByIdAndRemove(req.params.id, function(err, device) {
 		if (err)
 			res.send(err);
+		
 		res.json({message: 'Device successfully deleted'});
 	});
 };
