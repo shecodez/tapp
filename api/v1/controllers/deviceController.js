@@ -34,7 +34,7 @@ exports.read_a_device = function(req, res) {
 
 // PUT tapp.io/api/v1/devices/:params
 exports.update_a_device = function(req, res) {
-	Device.findOneAndUpdate({_id: req.params.deviceId}, req.body, {updated_on: Date.now}, function(err, device) {
+	Device.findOneAndUpdate({_id: req.params.deviceId}, req.body, {new: true}, function(err, device) {
 		if (err)
 			res.send(err);
 		res.json(device);
