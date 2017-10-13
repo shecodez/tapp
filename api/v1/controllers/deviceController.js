@@ -14,7 +14,7 @@ exports.list_all_devices = function(req, res) {
 };
 
 // POST tapp.io/api/v1/devices/:params
-exports.create_a_devices = function(req, res) {
+exports.create_a_device = function(req, res) {
 	var new_device = new Device(req.body);
 	new_device.save(function(err, device) {
 		if (err)

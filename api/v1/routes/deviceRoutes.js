@@ -13,5 +13,5 @@ module.exports = function(app) {
 	app.route('/api/v1/devices/:deviceId')
 		.get(device.read_a_device)
 		.put(device.update_a_device)
-		.delete(delete.delete_a_device);
+		.delete(device.delete_a_device);
 };
