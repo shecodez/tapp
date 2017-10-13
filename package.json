@@ -1,0 +1,32 @@
+{
+  "name": "tapp",
+  "version": "1.0.0",
+  "description": "tapp api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shecodez/tapp.io.git"
+  },
+  "keywords": [
+    "NFC",
+    "API",
+    "i18n"
+  ],
+  "author": "Nicole J. Nobles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shecodez/tapp.io/issues"
+  },
+  "homepage": "https://github.com/shecodez/tapp.io#readme",
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.12.1"
+  }
+}
