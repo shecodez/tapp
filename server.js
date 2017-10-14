@@ -24,10 +24,8 @@ app.use(bodyParser.json());
 /**
  * Routes/Routing
 **/
-//var routes = require('./routes.js');
-//app.use('/', routes);
-var deviceRoutes = require('./api/v1/routes/DeviceRoutes');
-deviceRoutes(app);
+var routes = require('./routes');
+app.use('/', routes);
 
 /**
  * Error Handling
@@ -54,7 +52,6 @@ var server = app.listen(config.port, function () {
 	});
 
 	db.once('open', function() {
-		//require('./routes')(server);
 		console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
 	});
 });

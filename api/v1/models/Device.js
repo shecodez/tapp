@@ -1,9 +1,9 @@
-'use strict';
 
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+//var mongooseStringQuery = require('mongoose-string-query');
+//var timestamps = require('mongoose-timestamp');
 
-var DeviceSchema = new Schema({
+var DeviceSchema = new mongoose.Schema({
 	name: {
 		type: String,
 		required: 'Device name required'
@@ -30,4 +30,8 @@ var DeviceSchema = new Schema({
 	}
 });
 
-module.exports = mongoose.model('Device', DeviceSchema);
+//DeviceSchema.plugin(timestamps);
+//DeviceSchema.plugin(mongooseStringQuery);
+
+var Device = mongoose.model('Device', DeviceSchema);
+module.exports = Device;

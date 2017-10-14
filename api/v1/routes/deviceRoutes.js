@@ -1,6 +1,5 @@
-'use strict';
 
-module.exports = function(app) {
+/*module.exports = function(app) {
 	
 	var device = require('../controllers/DeviceController');
 	
@@ -14,4 +13,17 @@ module.exports = function(app) {
 		.get(device.read_one)
 		.put(device.update)
 		.delete(device.destroy);
-};
+};*/
+
+var router = require('express').Router();
+
+var device = require('../controllers/DeviceController');
+
+router.get('/devices', device.read_all);
+router.post('/devices', device.create);
+
+router.get('/devices/:id', device.read_one);
+router.put('/devices/:id', device.update);
+router.delete('/devices/:id', device.destroy);
+
+module.exports = router;

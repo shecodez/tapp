@@ -1,7 +1,12 @@
-'use strict';
+/**
+ * Module Dependencies
+**/
+var mongoose = require('mongoose');
 
-var mongoose = require('mongoose'),
-	Device = mongoose.model('Device');
+/**
+ * Model Schema
+**/
+var	Device = mongoose.model('Device');
 
 
 // GET tapp.io/api/v1/devices
