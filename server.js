@@ -3,11 +3,12 @@
  * Module Dependencies
 **/
 var express		= require('express');
+var path		= require('path');
 var	mongoose	= require('mongoose');
 var	bodyParser	= require('body-parser');
 
 // Additional Modules
-var config	= require('./config');
+var config	= require('./config/index');
 var Device	= require('./api/v1/models/Device');
 	
 /**
@@ -20,22 +21,21 @@ var app = express();
 **/
 app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: true }));
+// view engine setup
+app.set('views', path.join(__dirname + '/app/views'));
+app.set('view engine', 'pug');
+
+// Define the path for the static files like image, css and js files
+app.use(express.static(path.join(__dirname,'/public')));
+app.use('/libs', express.static(path.join(__dirname, 'node_modules')));
 
 /**
  * Routes/Routing
 **/
-var routes = require('./routes');
-app.use('/', routes);
+app.use('/', require('./routes'));
 
 /**
- * Error Handling
-**/
-app.use(function(req, res) {
-	res.status(404).send({url: req.originalUrl + ' not found'});
-});
-
-/**
- * Start Server, Connect to DB & Require Routes
+ * Start Server, & Connect to DB
  **/
 var server = app.listen(config.port, function () {
 	/**
@@ -54,4 +54,11 @@ var server = app.listen(config.port, function () {
 	db.once('open', function() {
 		console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
 	});
+});
+
+/**
+ * Error Handling
+**/
+app.use(function(req, res) {
+	res.status(404).send({url: req.originalUrl + ' not found'});
 });

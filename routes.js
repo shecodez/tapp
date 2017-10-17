@@ -8,13 +8,24 @@ var deviceRoutes = require('./api/v1/routes/DeviceRoutes');
 
 /**
  * GET /
- * Render Home page
- */
+ * render homepage
+**/
 router.get('/', function (req, res) {
-    //res.render('index');
-    res.status(200).json({ message: 'Connected!' });
+    res.render('home');
 });
 
+/**
+ * GET /api
+ * Send welcome msg
+**/
+router.get('/api', function (req, res) {
+    res.status(200).json({ message: 'Welcome to TApp API.' });
+});
+
+/**
+ * GET, POST /api/v1/devices
+ * GET, PUT, DELETE /api/v1/devices/:id
+**/
 router.use('/api/v1', deviceRoutes);
 
 module.exports = router;
