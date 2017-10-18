@@ -1,0 +1,14 @@
+extends layout
+
+block title
+	title 404 error | TApp 
+
+block content
+	.error-page
+		.content
+			h1 404
+			h2 Page not found
+			p Forget 404... It's over 9000!
+			a(href='/') Go Back
+block js
+	script( src='/javascripts/errorController.js', rel='text/javascript', )
