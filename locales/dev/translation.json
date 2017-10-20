@@ -1,0 +1,22 @@
+{
+	"ac-remote": {
+		"wind-speed":"Wind speed",
+		"auto":"Auto",
+		"high":"High",
+		"low":"Low",
+		"very-low":"Very low",
+		"AC":"AC",
+		"dehumidifier":"Dehumidifier",
+		"fan":"Fan",
+		"heater":"Heater",
+		"wind-power-setting":"Wind power setting",
+		"mode-change":"Mode change",
+		"on-off-timer-setting":"On/Off timer setting",
+		"temperature-setting":"Temperature setting",
+		"wind-direction":"Wind direction",
+		"air-cleaner":"Air cleaner",
+		"flap-swing":"Flap swing",
+		"reset":"Reset",
+		"on-off":"On/Off"
+	}
+}

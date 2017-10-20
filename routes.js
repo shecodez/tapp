@@ -11,7 +11,7 @@ var deviceRoutes = require('./api/v1/routes/DeviceRoutes');
  * render homepage
 **/
 router.get('/', function (req, res) {
-    res.render('home');
+    res.render('device/getOne');
 });
 
 /**

@@ -1,0 +1,22 @@
+{
+	"ac-remote": {
+		"wind-speed":"風速",
+		"auto":"自動",
+		"high":"強風",
+		"low":"弱風",
+		"very-low":"微風",
+		"AC":"冷房",
+		"dehumidifier":"除湿",
+		"fan":"送風",
+		"heater":"暖房",
+		"wind-power-setting":"風量設定",
+		"mode-change":"運転切換",
+		"on-off-timer-setting":"タイマー時間",
+		"temperature-setting":"温度設定",
+		"wind-direction":"風向",
+		"air-cleaner":"空気清浄",
+		"flap-swing":"スイング",
+		"reset":"リセット",
+		"on-off":"運転/停止"
+	}
+}

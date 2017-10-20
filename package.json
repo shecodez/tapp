@@ -29,6 +29,9 @@
     "angular": "^1.6.6",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "i18next": "^10.0.1",
+    "i18next-express-middleware": "^1.0.7",
+    "i18next-node-fs-backend": "^1.0.0",
     "mongoose": "^4.12.1",
     "pug": "^2.0.0-rc.4"
   }

@@ -1,0 +1,22 @@
+{
+	"ac-remote": {
+		"wind-speed":"풍속",
+		"auto":"자동",
+		"high":"강풍",
+		"low":"약한 바람",
+		"very-low":"산들 바람",
+		"AC":"냉각",
+		"dehumidifier":"제습",
+		"fan":"돌풍",
+		"heater":"난방",
+		"wind-power-setting":"풍량 설정",
+		"mode-change":"운전 전환",
+		"on-off-timer-setting":"타이머 시간",
+		"temperature-setting":"온도 설정",
+		"wind-direction":"풍향",
+		"air-cleaner":"공기 청정기",
+		"flap-swing":"스윙",
+		"reset":"재설정",
+		"on-off":"운전/정지"
+	}
+}

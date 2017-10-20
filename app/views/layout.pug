@@ -1,5 +1,5 @@
 doctype html  
-html( lang="en" )  
+html( lang='en' ) 
 	head
 		block title
 		meta( charset='utf-8' )
@@ -22,11 +22,16 @@ html( lang="en" )
 			include shared/footer
 
 		//- jQuery
-		script( src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous" )
+		script( src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous" )
 		//- Angular JavaScript
 		script( src='libs/angular/angular.js', rel='text/javascript' )
+
+		script.
+			$('document').ready(function() {
+				var curLng = window.location.href.slice(-2) || 'en';
+				var select = $('#lng option:eq(0)').text(curLng.toUpperCase());;
+			});
+
 		
 		block js
 

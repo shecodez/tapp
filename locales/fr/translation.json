@@ -1,0 +1,22 @@
+{
+	"ac-remote": {
+		"wind-speed":"La vitesse du vent",
+		"auto":"Automatique",
+		"high":"Un vent fort",
+		"low":"Vent faible",
+		"very-low":"Breeze",
+		"AC":"Refroidissement",
+		"dehumidifier":"déshumidificateur",
+		"fan":"Ventilateur",
+		"heater":"Chauffage",
+		"wind-power-setting":"Réglage du volume d'air",
+		"mode-change":"Opération de commutation",
+		"on-off-timer-setting":"Temps de minuterie",
+		"temperature-setting":"Réglage de la température",
+		"wind-direction":"Direction du vent",
+		"air-cleaner":"Purification de l'air",
+		"flap-swing":"Swing",
+		"reset":"Réinitialiser",
+		"on-off":"Opération/arrêt"
+	}
+}

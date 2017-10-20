@@ -2,19 +2,44 @@
 /**
  * Module Dependencies
 **/
-var express		= require('express');
-var path		= require('path');
-var	mongoose	= require('mongoose');
-var	bodyParser	= require('body-parser');
+var express			= require('express');
+var path			= require('path');
+var	mongoose		= require('mongoose');
+var	bodyParser		= require('body-parser');
 
 // Additional Modules
-var config	= require('./config/index');
-var Device	= require('./api/v1/models/Device');
-	
+var config			= require('./config/index');
+var Device			= require('./api/v1/models/Device');
+var i18n			= require('i18next');
+var i18nMiddleware	= require('i18next-express-middleware');
+var i18nFsBackend	= require('i18next-node-fs-backend');	
+
 /**
  * Create Express app
 **/
 var app = express();
+
+/**
+ * i18next init Configuration
+**/
+i18n
+	.use(i18nFsBackend)
+	.use(i18nMiddleware.LanguageDetector)
+	.init({
+		lng: 'en',
+		backend: {
+			loadPath: __dirname + '/locales/{{lng}}/translation.json',
+			addPath: __dirname + '/locales/{{lng}}/missing.json'
+		}, 
+		fallbackLng: 'en',
+		preload: ['en', 'jp'],
+		debug: true,
+		saveMissing: true
+	});
+
+app.use(i18nMiddleware.handle(i18n, {
+	removeLngFromUrl: false
+}));
 
 /**
  * Setup middleware
