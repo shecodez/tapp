@@ -10,7 +10,7 @@ html( lang='en' )
 		//- Normalize css
 		link( href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css", rel="stylesheet", type='text/css')
 		//- Custom Styles
-		link( href='/stylesheets/style.css', rel='stylesheet', type='text/css' )
+		link( href='/css/style.css', rel='stylesheet', type='text/css' )
 
 	body( ng-app='tapp' )
 		header
@@ -28,7 +28,10 @@ html( lang='en' )
 
 		script.
 			$('document').ready(function() {
-				var curLng = window.location.href.slice(-2) || 'en';
+				var curLng = 'en';
+				if ((window.location.href).includes("?lng="))
+					curLng = window.location.href.slice(-2)
+				
 				var select = $('#lng option:eq(0)').text(curLng.toUpperCase());;
 			});
 

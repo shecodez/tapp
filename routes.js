@@ -4,14 +4,15 @@
 **/
 var router	= require('express').Router();
 
-var deviceRoutes = require('./api/v1/routes/DeviceRoutes');
+var deviceRoutes = require('./api/v1/routes/device');
 
 /**
  * GET /
  * render homepage
 **/
 router.get('/', function (req, res) {
-    res.render('device/getOne');
+    //res.render('core/home');
+    res.render('device/view');
 });
 
 /**

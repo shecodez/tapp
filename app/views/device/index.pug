@@ -1,0 +1,11 @@
+extends ../layout
+
+block title
+	title TApp | devices
+
+block content
+	div(ng-controller='DeviceController as dctrl')
+		h1 {{dctrl.device.name}}
+
+block js
+	script( src='/ctrls/device/device.controller.js', rel='text/javascript', )

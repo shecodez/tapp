@@ -9,7 +9,8 @@ var	bodyParser		= require('body-parser');
 
 // Additional Modules
 var config			= require('./config/index');
-var Device			= require('./api/v1/models/Device');
+var Device			= require('./api/v1/models/device');
+
 var i18n			= require('i18next');
 var i18nMiddleware	= require('i18next-express-middleware');
 var i18nFsBackend	= require('i18next-node-fs-backend');	
@@ -52,6 +53,9 @@ app.set('view engine', 'pug');
 
 // Define the path for the static files like image, css and js files
 app.use(express.static(path.join(__dirname,'/public')));
+// view controllers
+app.use('/ctrls', express.static(path.join(__dirname,'/app/ctrls')));
+// node_module libs
 app.use('/libs', express.static(path.join(__dirname, 'node_modules')));
 
 /**

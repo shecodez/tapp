@@ -17,7 +17,7 @@
 
 var router = require('express').Router();
 
-var device = require('../controllers/DeviceController');
+var device = require('../ctrls/device');
 
 router.get('/devices', device.read_all);
 router.post('/devices', device.create);

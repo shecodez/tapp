@@ -2,8 +2,13 @@
 	var app = angular.module('tapp', []);
 
 	app.controller('DeviceController', function() {
-
+		this.device = device;
 	});
+
+	var device = {
+		name: "Pinnapple Washing Machine",
+		desc: "blah blah blah"
+	};
 })();
 
 /*var deviceCtrl = angular.module('tapp', []);
