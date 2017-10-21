@@ -34,6 +34,7 @@ i18n
 		}, 
 		fallbackLng: 'en',
 		preload: ['en', 'jp'],
+		// remove debug in production
 		debug: true,
 		saveMissing: true
 	});
